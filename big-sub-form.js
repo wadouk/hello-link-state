@@ -27,12 +27,13 @@ const BigSubForm = React.createClass({
     onChange : function (prop) {
         return {
             value : this.state[prop],
-            requestChange : (function (newValue) {
+            requestChange : ((newValue) => { // synchronize current LinkState & the props linkState
                 this.linkState(prop).requestChange(newValue);
-                setTimeout((function () {
+                setTimeout((() => { // because setting the state is async
                     this.getValueLink(this.props).requestChange(this.state);
                 }).bind(this), 0);
             }).bind(this)
+
         };
     },
 
