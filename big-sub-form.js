@@ -17,10 +17,7 @@ const BigSubForm = React.createClass({
     },
 
     getInitialState : function () {
-        return {
-            prop1 : null,
-            prop2 : null
-        }
+        return {}
     },
 
     componentDidMount : function () {
