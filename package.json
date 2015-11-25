@@ -1,0 +1,22 @@
+{
+  "name": "hello-react-forms",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "live-server": "^0.8.2",
+    "mkdirp": "^0.5.1",
+    "nodemon": "^1.8.1",
+    "react": "^0.14.3",
+    "react-addons-linked-state-mixin": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "watchify": "^3.6.1"
+  },
+  "scripts": {
+    "build": "node_modules/.bin/nodemon build.js -w build.js ",
+    "start": "node_modules/.bin/live-server --entry-file=bundle.min.js --entry-file=vendors.min.js --entry-file=index.html"
+  }
+}
