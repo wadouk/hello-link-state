@@ -26,21 +26,13 @@ const HelloLinkState = React.createClass({
         }
     },
 
-    changeSubForm2 : function (name) {
-        return (function (newValue) {
-            const newState = this.state;
-            newState[name] = newValue;
-            this.setState(newState);
-        }).bind(this);
-    },
-
     render : function () {
         return (
             <form onSubmit={this.onSubmit}>
                 <label>Hello</label>
                 <input type="text" valueLink={this.linkState('message')}/>
                 <BigSubForm valueLink={this.linkState('subform')}/>
-                <BigSubForm value={this.state.other} onChange={this.changeSubForm2('other')}/>
+                <BigSubForm value={this.linkState("other").value} onChange={this.linkState("other").requestChange}/>
                 <input type="submit"/>
             </form>
         )
