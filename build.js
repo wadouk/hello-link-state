@@ -19,7 +19,7 @@ function bundleIt(bundle, filename) {
         .pipe(fs.createWriteStream(filename));
 }
 
-var bundle = browserify("./hello.js", {
+var bundle = browserify("./index.js", {
     cache : {},
     debug : true,
     packageCache : {}
