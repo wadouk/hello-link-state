@@ -24,18 +24,13 @@ const BigSubForm = React.createClass({
         this.setState(this.getValueLink(this.props).value);
     },
 
-    notifyParent : function (newState) {
-        (this.props.valueLink ? this.props.valueLink.requestChange : this.props.onChange)(newState);
-    },
-
     onChange : function (prop) {
         return {
             value : this.state[prop],
             requestChange : (function (newValue) {
-                this.linkState(prop).requestChange(newValue);
                 var newState = this.state;
                 newState[prop] = newValue;
-                this.notifyParent(this.state);
+                this.getValueLink(this.props).requestChange(this.state);
             }).bind(this)
         };
     },
@@ -44,7 +39,7 @@ const BigSubForm = React.createClass({
         return (
             <div>
                 <input type="text" valueLink={this.onChange('prop1')}/>
-                <input type="text" valueLink={this.onChange('prop2')}/>
+                <input type="text" value={this.state.prop2} onChange={this.onChange("prop2").requestChange}/>
             </div>
         )
     }
